@@ -1,0 +1,11 @@
+CREATE TABLE Shelter (
+  HScode SERIAL NOT NULL,
+  HSname VARCHAR(30) NOT NULL,
+  PRIMARY KEY (HScode)
+);
+
+CREATE TABLE FoodBank (
+  FBcode SERIAL NOT NULL,
+  FBname VARCHAR(30) NOT NULL,
+  PRIMARY KEY (FBcode)
+);
