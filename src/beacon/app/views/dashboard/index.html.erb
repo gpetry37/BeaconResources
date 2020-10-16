@@ -1,32 +1,43 @@
 <header>
-  <h1>
-    Welcome to BeaconResources!
-  </h1>
+  <h1>BeaconResources</h1>
+  <h3><%= link_to "Suggest Resource", "/suggestions" %></h3>
   <h3><%= link_to "Log In", "/log-in" %></h3>
 </header>
 <section>
   <p>
     BeaconResources is a web application that will allow for easy access to verified resources, sucj as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
   </p>
+  <form action="Filter" method="post">
+    <select id="filter" name="filter">
+      <option value="Filters">Filters</option>
+      <% @categories.each do |category| %>
+        <option value="<%= category.id %>"><%= category.name %></option>
+      <% end %>
+    </select>
+    <div style="position: relative; right: 0px; top:10px;">
+      <input type="submit" value="Find Resources">
+    </div>
+  </form>
 </section>
-<body>
-  <% @resources.each do |resource| %>
-    <h3><%= if resource.county %></h3>
-    <table>
-      <thead>
-        <tr>
-          <th>name</th>
-          <th>address</th>
-          <th>town</th>
-          <th>state</th>
-          <th>zip_code</th>
-          <th>county_id</th>
-          <th>phone</th>
-          <th>category_id</th>
-        </tr>
-      </thead>
 
-      <tbody>
+<body>
+  <h3>County</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Town</th>
+        <th>State</th>
+        <th>Zip Code</th>
+        <th>County ID</th>
+        <th>Phone</th>
+        <th>Category ID</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @resources.each do |resource| %>
         <tr>
           <td><%= resource.name %></td>
           <td><%= resource.address %></td>
