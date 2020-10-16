@@ -2,9 +2,42 @@
   <h1>
     Welcome to BeaconResources!
   </h1>
+  <h3><%= link_to "Log In", "/log-in" %></h3>
 </header>
 <section>
   <p>
     BeaconResources is a web application that will allow for easy access to verified resources, sucj as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
   </p>
 </section>
+<body>
+  <% @resources.each do |resource| %>
+    <h3><%= if resource.county %></h3>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>address</th>
+          <th>town</th>
+          <th>state</th>
+          <th>zip_code</th>
+          <th>county_id</th>
+          <th>phone</th>
+          <th>category_id</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><%= resource.name %></td>
+          <td><%= resource.address %></td>
+          <td><%= resource.town %></td>
+          <td><%= resource.state %></td>
+          <td><%= resource.zip_code %></td>
+          <td><%= resource.county_id %></td>
+          <td><%= resource.phone %></td>
+          <td><%= resource.category_id %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>
