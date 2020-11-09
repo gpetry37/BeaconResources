@@ -1,19 +1,16 @@
+=begin
+Project name: Beacon Resources
+Description: BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
+Filename: 2_categories.rb
+Description: Creates Categories db table
+Last modified on: 11/09/2020
+=end
+
 class Categories < ActiveRecord::Migration[6.0]
   def self.up
     create_table :categories do |t|
       t.column :name, :string, :null => false
     end
-    
-    Category.create :name => "Motel/hotel referral"
-    Category.create :name => "Single Shelter"
-    Category.create :name => "Family Shelter"
-    Category.create :name => "Transitional Housing"
-    Category.create :name => "Domestic Violence Shelter"
-    Category.create :name => "Runaway Youth Shelter"
-    Category.create :name => "Drop In Day Care"
-    Category.create :name => "Soup Kitchen/Feeding Program"
-    Category.create :name => "Job Training"
-    Category.create :name => "Counseling"
   end
 
   def self.down
