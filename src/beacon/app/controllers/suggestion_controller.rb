@@ -12,10 +12,19 @@ class SuggestionController < ApplicationController
     end
 
     def suggestions
+        unless params[:name] == nil
+            @suggestion = Suggestion.create(:name=> params[:name], :s_type => params[:type], :city => params[:city], :county => params[:county], :description => params[:desc])
+            if @suggestion.save
+                flash.now[:notice] = "Suggestion created!"
+                render :suggestions
+            else
+                flash.now[:error] = "Could not save suggestion."
+                render :suggestions
+            end
+        end
     end
 
     def submit
-        Suggestion.create(:name=> params[:name], :s_type => params[:type], :city => params[:city], :county => params[:county], :description => params[:desc])
-        redirect_to action: "suggestions", notice: "Suggestion created!"
+        
     end
 end

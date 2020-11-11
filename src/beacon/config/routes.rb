@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   post '', to: 'dashboard#index', as: 'filter'
   get 'suggestions', to: 'suggestion#suggestions', as: 'suggestions'
   get 'view', to: 'suggestion#view', as: 'view'
-  post 'suggestions', to: 'suggestion#submit', as: 'submit'
+  post 'suggestions', to: 'suggestion#suggestions', as: 'submit'
 end

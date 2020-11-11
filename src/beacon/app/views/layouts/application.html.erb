@@ -16,17 +16,16 @@
       <%= link_to '<button type="button" class="btn btn-outline-primary">View Suggestions</button>'.html_safe, "/view" %>
       <%= link_to '<button type="button" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
       <%= link_to '<button type="button" class="btn btn-outline-primary">Log In</button>'.html_safe, "/login" %>
-    </div> 
+    </div>    
+  </header>
 
+  <body>
     <% flash.each do |type, msg| %>
       <div class="alert alert-info">
         <%= msg %>
       </div>
     <% end %>
     
-  </header>
-
-  <body>
     <%= yield %>
   </body>
 </html>
