@@ -6,14 +6,6 @@ Description: The root directory that the user will see when navigating to the si
 Last modified on: 11/10/2020
 <% end %>
 
-<header>
-  <div class="topnav">
-    <h1><%= link_to "BeaconResources", "/" %></h1>
-    <%= link_to '<button type="button" class="btn btn-outline-primary">View Suggestions</button>'.html_safe, "/view" %>
-    <%= link_to '<button type="button" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
-    <%= link_to '<button type="button" class="btn btn-outline-primary">Log In</button>'.html_safe, "/login" %>
-  </div> 
-</header>
 <section>
   <p>
     BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
@@ -25,7 +17,7 @@ Last modified on: 11/10/2020
     <% end %>
 </section>
 
-<body>
+<section>
   <%# Lists each county above the resources within it %>
   <% @counties.each do |county| %>
     <h3><%= county.name %></h3>
@@ -56,4 +48,4 @@ Last modified on: 11/10/2020
       </tbody>
     </table>
   <% end %>
-</body>
+</section>

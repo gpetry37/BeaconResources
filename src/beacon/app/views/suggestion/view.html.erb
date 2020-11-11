@@ -6,15 +6,6 @@ Description: Allows user to choose whether they want to make a suggestion to add
 Last modified on: 11/09/2020
 <% end %>
 
-<header>
-  <div class="topnav">
-    <h1><%= link_to "BeaconResources", "/" %></h1>
-    <%= link_to '<button type="button" class="btn btn-outline-primary">View Suggestions</button>'.html_safe, "/view" %>
-    <%= link_to '<button type="button" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
-    <%= link_to '<button type="button" class="btn btn-outline-primary">Log In</button>'.html_safe, "/login" %>
-  </div> 
-</header>
-<body>
   <table class="table">
     <thead>
       <tr>
@@ -39,4 +30,3 @@ Last modified on: 11/09/2020
       <% end %>
     </tbody>
   </table>
-</body>
