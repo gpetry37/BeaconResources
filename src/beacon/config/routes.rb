@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   get 'login', to: 'login#login', as: 'login'
   post '', to: 'dashboard#index', as: 'filter'
   get 'suggestions', to: 'suggestion#suggestions', as: 'suggestions'
+  get 'view', to: 'suggestion#view', as: 'view'
+  post 'suggestions', to: 'suggestion#submit', as: 'submit'
 end

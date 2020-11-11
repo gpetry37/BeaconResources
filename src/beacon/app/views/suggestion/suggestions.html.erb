@@ -9,35 +9,45 @@ Last modified on: 11/09/2020
 <header>
   <div class="topnav">
     <h1><%= link_to "BeaconResources", "/" %></h1>
-    <button type="button" class="btn btn-outline-primary"><%= link_to "Suggest Resource", "/suggestions" %></button>
-    <button type="button" class="btn btn-outline-primary"><%= link_to "Log In", "/login" %></button>
+    <%= link_to '<button type="button" class="btn btn-outline-primary">View Suggestions</button>'.html_safe, "/view" %>
+    <%= link_to '<button type="button" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
+    <%= link_to '<button type="button" class="btn btn-outline-primary">Log In</button>'.html_safe, "/login" %>
   </div> 
+
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-info">
+      <%= msg %>
+    </div>
+    <% end %>
 </header>
 
-<form>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="SuggestionSelect" id="flexRadioDefault1" required>
-    <label class="form-check-label" for="flexRadioDefault1">
-      Addition Suggestion
-    </label>
-  </div>
-  <div class="form-check">
-    <input class="form-check-input" type="radio" name="SuggestionSelect" id="flexRadioDefault2">
-    <label class="form-check-label" for="flexRadioDefault2">
-      Removal Suggestion
-    </label>
-  </div>
-  <div class="mb-3">
-    <label for="ResourceNameInput" class="form-label">Resource Name</label>
-    <input type="name" class="form-control" id="ResourceNameInput" placeholder="Example Soup Kitchen">
-  </div>
-  <div class="mb-3">
-    <label for="LocationInput" class="form-label">Location</label>
-    <input type="Location" class="form-control" id="LocationInput" placeholder="Example City, Mercer County">
-  </div>
-  <div class="mb-3">
-    <label for="TextBox" class="form-label">Description</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Why do you think this resource should be added/removed?"></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+<body>
+
+  <%= form_with(url: "/suggestions", method: "post") do %>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" id="AddType" value="Add" required>
+      <label class="form-check-label" for="AddType">
+        Addition Suggestion
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" id="RemoveType" value="Remove" required>
+      <label class="form-check-label" for="RemoveType">
+        Removal Suggestion
+      </label>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Resource Name</label>
+      <input class="form-control" type="text" id="name" name="name" placeholder="Example Soup Kitchen" required>
+    </div>
+    <div class="mb-3">
+      <label for="location" class="form-label">Location</label>
+      <input class="form-control" type="text" id="location" name="location" placeholder="Example City, Mercer County" required>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="desc" rows="3" placeholder="Why do you think this resource should be added/removed?" required></textarea>
+    </div>
+    <%= submit_tag "Submit", class: "btn btn-primary" %>
+  <% end %>
+</body>

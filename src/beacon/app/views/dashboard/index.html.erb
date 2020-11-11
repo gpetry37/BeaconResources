@@ -9,10 +9,10 @@ Last modified on: 11/10/2020
 <header>
   <div class="topnav">
     <h1><%= link_to "BeaconResources", "/" %></h1>
-    <button type="button" class="btn btn-outline-primary"><%= link_to "Suggest Resource", "/suggestions" %></button>
-    <button type="button" class="btn btn-outline-primary"><%= link_to "Log In", "/login" %></button>
+    <%= link_to '<button type="button" class="btn btn-outline-primary">View Suggestions</button>'.html_safe, "/view" %>
+    <%= link_to '<button type="button" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
+    <%= link_to '<button type="button" class="btn btn-outline-primary">Log In</button>'.html_safe, "/login" %>
   </div> 
-  
 </header>
 <section>
   <p>
@@ -35,7 +35,6 @@ Last modified on: 11/10/2020
           <th scope="col">Name</th>
           <th scope="col">Address</th>
           <th scope="col">Town</th>
-          <th scope="col">State</th>
           <th scope="col">Zip Code</th>
           <th scope="col">Phone</th>
         </tr>
@@ -49,7 +48,6 @@ Last modified on: 11/10/2020
               <td><%= resource.name %></td>
               <td><%= resource.address %></td>
               <td><%= resource.town %></td>
-              <td><%= resource.state %></td>
               <td><%= resource.zip_code %></td>
               <td><%= resource.phone %></td>
             </tr>

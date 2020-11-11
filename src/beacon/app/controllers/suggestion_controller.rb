@@ -7,6 +7,15 @@ Last modified on: 11/09/2020
 =end
 
 class SuggestionController < ApplicationController
+    def view
+        @suggestions = Suggestion.all
+    end
+
     def suggestions
+    end
+
+    def submit
+        Suggestion.create(:name=> params[:name], :s_type => params[:type], :location => params[:location], :description => params[:desc])
+        redirect_to :action => "suggestions", notice: "Suggestion created!"
     end
 end
