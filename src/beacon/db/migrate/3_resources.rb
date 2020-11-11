@@ -12,7 +12,6 @@ class Resources < ActiveRecord::Migration[6.0]
       t.column :name, :string, :null => false
       t.column :address, :string
       t.column :town, :string
-      t.column :state, :string
       t.column :zip_code, :string
       t.column :county_id, :integer
       t.column :phone, :bigint

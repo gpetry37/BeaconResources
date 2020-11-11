@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 4) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "addsuggestions", force: :cascade do |t|
-    t.integer "resouce_id"
-    t.text "description"
-    t.datetime "created_at"
-  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name", null: false
@@ -29,21 +23,22 @@ ActiveRecord::Schema.define(version: 5) do
     t.string "name", limit: 12, null: false
   end
 
-  create_table "removesuggestions", force: :cascade do |t|
-    t.integer "resouce_id"
-    t.text "description"
-    t.datetime "created_at"
-  end
-
   create_table "resources", force: :cascade do |t|
     t.string "name", null: false
     t.string "address"
     t.string "town"
-    t.string "state"
     t.string "zip_code"
     t.integer "county_id"
     t.bigint "phone"
     t.integer "category_id"
+  end
+
+  create_table "suggestions", force: :cascade do |t|
+    t.string "name"
+    t.string "s_type"
+    t.string "location"
+    t.text "description"
+    t.datetime "created_at"
   end
 
 end
