@@ -15,7 +15,7 @@ class SuggestionController < ApplicationController
     end
 
     def submit
-        Suggestion.create(:name=> params[:name], :s_type => params[:type], :location => params[:location], :description => params[:desc])
-        redirect_to :action => "suggestions", notice: "Suggestion created!"
+        Suggestion.create(:name=> params[:name], :s_type => params[:type], :city => params[:city], :county => params[:county], :description => params[:desc])
+        redirect_to action: "suggestions", notice: "Suggestion created!"
     end
 end

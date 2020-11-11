@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 4) do
   create_table "suggestions", force: :cascade do |t|
     t.string "name"
     t.string "s_type"
-    t.string "location"
+    t.string "city"
+    t.string "county"
     t.text "description"
     t.datetime "created_at"
   end

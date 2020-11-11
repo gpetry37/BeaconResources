@@ -13,15 +13,14 @@ Last modified on: 11/09/2020
     <%= link_to '<button type="button" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
     <%= link_to '<button type="button" class="btn btn-outline-primary">Log In</button>'.html_safe, "/login" %>
   </div> 
+</header>
 
+<body>
   <% flash.each do |type, msg| %>
     <div class="alert alert-info">
       <%= msg %>
     </div>
-    <% end %>
-</header>
-
-<body>
+  <% end %>
 
   <%= form_with(url: "/suggestions", method: "post") do %>
     <div class="form-check">
@@ -41,8 +40,12 @@ Last modified on: 11/09/2020
       <input class="form-control" type="text" id="name" name="name" placeholder="Example Soup Kitchen" required>
     </div>
     <div class="mb-3">
-      <label for="location" class="form-label">Location</label>
-      <input class="form-control" type="text" id="location" name="location" placeholder="Example City, Mercer County" required>
+      <label for="city" class="form-label">City</label>
+      <input class="form-control" type="text" id="city" name="city" placeholder="Example City" required>
+    </div>
+    <div class="mb-3">
+      <label for="county" class="form-label">County</label>
+      <input class="form-control" type="text" id="county" name="county" placeholder="Example County" required>
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>

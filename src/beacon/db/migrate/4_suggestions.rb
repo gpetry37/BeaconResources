@@ -11,7 +11,8 @@ class Suggestions < ActiveRecord::Migration[6.0]
     create_table :suggestions do |t|
       t.column :name, :string
       t.column :s_type, :string
-      t.column :location, :string
+      t.column :city, :string
+      t.column :county, :string
       t.column :description, :text
       t.column :created_at, :timestamp
     end
