@@ -7,6 +7,7 @@ Last modified on: 11/09/2020
 =end
 
 Rails.application.routes.draw do
+  devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "dashboard#index"
   get 'login', to: 'login#login', as: 'login'

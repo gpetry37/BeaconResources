@@ -20,10 +20,23 @@
   </header>
 
   <body>
-    <% flash.each do |type, msg| %>
-      <div class="alert alert-info">
-        <%= msg %>
+    <% if notice != nil %>
+      <div class="alert alert-info notice">
+        <%= notice %>
       </div>
+    <% end %>
+    <% if alert != nil %>
+      <div class="alert alert-danger alert">
+        <%= alert %>
+      </div>
+    <% end %>
+
+    <% if false %>
+      <% flash.each do |type, msg| %>
+        <div class="alert alert-info">
+          <%= msg %>
+        </div>
+      <% end %>
     <% end %>
     
     <%= yield %>
