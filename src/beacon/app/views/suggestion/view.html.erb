@@ -3,9 +3,10 @@ Project name: Beacon Resources
 Description: BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
 Filename: suggestions.html.erb
 Description: Allows user to choose whether they want to make a suggestion to add or remove a resource
-Last modified on: 11/09/2020
+Last modified on: 11/11/2020
 <% end %>
 
+<%# Displays all suggestions to admin %>
   <table class="table">
     <thead>
       <tr>
@@ -29,6 +30,7 @@ Last modified on: 11/09/2020
           <td style="text-align:center"><%= s.city %></td>
           <td style="text-align:center"><%= s.county %></td>
           <td><%= s.description %></td>
+          <%# Button for admin to remove suggestions once considered %>
           <% if admin_signed_in? %>
             <td style="text-align:center"><%= button_to "X", {:controller => :suggestion, :action => 'view', :id => s.id }, :class => 'btn btn-primary btn-sm', :method => :delete %></td>
           <% end %>

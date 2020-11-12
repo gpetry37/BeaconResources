@@ -1,3 +1,12 @@
+<% if false %>
+Project name: Beacon Resources
+Description: BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
+Filename: add.html.erb
+Description: Page for admins to add resources
+Last modified on: 11/11/2020
+<% end %>
+
+<%# Form for admins to add resources %>
 <%= form_with(url: "/add", method: "post") do %>
     <div class="mb-3">
       <label for="name" class="form-label">Resource Name</label>

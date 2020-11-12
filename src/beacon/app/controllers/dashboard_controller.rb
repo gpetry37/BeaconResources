@@ -7,6 +7,7 @@ Last modified on: 11/09/2020
 =end
 
 class DashboardController < ApplicationController
+  # Controller for home page
   def index
     # Checks that a filter has not been submitted and otherwise gets all resources.
     if params[:post].present? and params[:post][:category_id] != ''
