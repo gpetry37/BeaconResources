@@ -9,23 +9,29 @@ Last modified on: 11/09/2020
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Type</th>
-        <th scope="col">Name</th>
-        <th scope="col">City</th>
-        <th scope="col">County</th>
-        <th scope="col">Description</th>
+        <th scope="col" style="text-align:center">#</th>
+        <th scope="col" style="text-align:center">Type</th>
+        <th scope="col" style="text-align:center">Name</th>
+        <th scope="col" style="text-align:center">City</th>
+        <th scope="col" style="text-align:center">County</th>
+        <th scope="col" style="text-align:center">Description</th>
+        <% if admin_signed_in? %>
+          <th scope="col" style="text-align:center">Remove</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
       <% @suggestions.each do |s| %>
         <tr>
-          <th scope="row"><%= s.id %></th>
-          <td><%= s.s_type %></th>
-          <td><%= s.name %></td>
-          <td><%= s.city %></td>
-          <td><%= s.county %></td>
+          <th scope="row" style="text-align:center"><%= s.id %></th>
+          <td style="text-align:center"><%= s.s_type %></th>
+          <td style="text-align:center"><%= s.name %></td>
+          <td style="text-align:center"><%= s.city %></td>
+          <td style="text-align:center"><%= s.county %></td>
           <td><%= s.description %></td>
+          <% if admin_signed_in? %>
+            <td style="text-align:center"><button type="button" value="<%= s.id %>" class="btn btn-primary btn-sm">X</button></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>

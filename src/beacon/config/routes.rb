@@ -10,9 +10,10 @@ Rails.application.routes.draw do
   devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "dashboard#index"
-  get 'login', to: 'login#login', as: 'login'
   post '', to: 'dashboard#index', as: 'filter'
   get 'suggestions', to: 'suggestion#suggestions', as: 'suggestions'
   get 'view', to: 'suggestion#view', as: 'view'
   post 'suggestions', to: 'suggestion#suggestions', as: 'submit'
+  get 'remove', to: 'update#remove', as: 'remove'
+  get 'add', to: 'update#add', as: 'add'
 end

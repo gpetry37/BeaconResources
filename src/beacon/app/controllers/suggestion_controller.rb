@@ -7,24 +7,33 @@ Last modified on: 11/09/2020
 =end
 
 class SuggestionController < ApplicationController
+    before_action :authorize_admin, :only => :view
+
     def view
-        @suggestions = Suggestion.all
+        if admin_signed_in?
+            @suggestions = Suggestion.all
+        else
+            redirect_to root_path alert = "Could not save suggestion."
+        end
     end
 
     def suggestions
         unless params[:name] == nil
             @suggestion = Suggestion.create(:name=> params[:name], :s_type => params[:type], :city => params[:city], :county => params[:county], :description => params[:desc])
             if @suggestion.save
-                flash.now[:notice] = "Suggestion created!"
-                render :suggestions
+                redirect_to root_path, notice: 'Suggestion created!'
             else
-                flash.now[:error] = "Could not save suggestion."
-                render :suggestions
+                redirect_to root_path, alert: 'Could not save suggestion.'
             end
         end
     end
 
     def submit
         
+    end
+
+    def authorize_admin
+        return unless !current_admin
+        redirect_to root_path, alert: 'Admins only!'
     end
 end
