@@ -6,6 +6,13 @@ Description: Populates db with table data
 Last modified on: 11/09/2020
 =end
 
+# Admins
+admin = Admin.new
+admin.email = "admin@test.com"
+admin.password = "admintest"
+admin.password_confirmation = 'admintest'
+admin.save!
+
 # Counties
 County.create :name => "Atlantic"
 County.create :name => "Bergen"
