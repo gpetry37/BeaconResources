@@ -10,10 +10,9 @@ class SuggestionController < ApplicationController
     before_action :authorize_admin, :only => :view
 
     def view
-        if admin_signed_in?
-            @suggestions = Suggestion.all
-        else
-            redirect_to root_path alert = "Could not save suggestion."
+        @suggestions = Suggestion.all
+        if params[:id] != nil
+            Suggestion.destroy(params[:id])
         end
     end
 

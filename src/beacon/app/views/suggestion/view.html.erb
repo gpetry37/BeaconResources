@@ -30,7 +30,7 @@ Last modified on: 11/09/2020
           <td style="text-align:center"><%= s.county %></td>
           <td><%= s.description %></td>
           <% if admin_signed_in? %>
-            <td style="text-align:center"><button type="button" value="<%= s.id %>" class="btn btn-primary btn-sm">X</button></td>
+            <td style="text-align:center"><%= button_to "X", {:controller => :suggestion, :action => 'view', :id => s.id }, :class => 'btn btn-primary btn-sm', :method => :delete %></td>
           <% end %>
         </tr>
       <% end %>

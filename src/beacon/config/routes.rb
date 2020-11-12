@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   get 'suggestions', to: 'suggestion#suggestions', as: 'suggestions'
   get 'view', to: 'suggestion#view', as: 'view'
   post 'suggestions', to: 'suggestion#suggestions', as: 'submit'
+  delete 'view', to: 'suggestion#view', as: 'remove_s'
   get 'remove', to: 'update#remove', as: 'remove'
+  delete 'remove', to: 'update#remove', as: 'remove_submit'
   get 'add', to: 'update#add', as: 'add'
+  post 'add', to: 'update#add', as: 'add_submit'
 end

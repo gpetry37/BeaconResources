@@ -15,19 +15,19 @@
       </thead>
 
       <tbody>
-      <%# Displays information relevant to a resource %>
-        <% @resources.each do |resource| %>
-          <% if resource.county_id == county.id %>
-            <tr>
-              <td><%= resource.name %></td>
-              <td style="text-align:center"><%= resource.address %></td>
-              <td style="text-align:center"><%= resource.town %></td>
-              <td style="text-align:center"><%= resource.zip_code %></td>
-              <td style="text-align:center"><%= resource.phone %></td>
-              <td style="text-align:center"><button type="button" value="<%= resource.id %>" class="btn btn-primary btn-sm">X</button></td>
-            </tr>
+        <%# Displays information relevant to a resource %>
+            <% @resources.each do |resource| %>
+            <% if resource.county_id == county.id %>
+              <tr>
+                <td><%= resource.name %></td>
+                <td style="text-align:center"><%= resource.address %></td>
+                <td style="text-align:center"><%= resource.town %></td>
+                <td style="text-align:center"><%= resource.zip_code %></td>
+                <td style="text-align:center"><%= resource.phone %></td>
+                <td style="text-align:center"><%= button_to "X", {:controller => :update, :action => 'remove', :id => resource.id }, :class => 'btn btn-primary btn-sm', :method => :delete %></td>
+              </tr>
+            <% end %>
           <% end %>
-        <% end %>
       </tbody>
     </table>
   <% end %>

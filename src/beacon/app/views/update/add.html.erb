@@ -22,12 +22,12 @@
     <label class="form-check-label" for="county_id">
     Resource County
     </label>
-    <%= select("post", "county_id", County.all.collect {|c| [ c.name, c.id ] }, { :include_blank => true }) %>
+    <%= select("post", "county_id", County.all.collect {|c| [ c.name, c.id ] }, { :include_blank => true }, :required => true) %>
     
     <label class="form-check-label" for="category_id">
     Resource Category
     </label>
-    <%= select("post", "category_id", Category.all.collect {|c| [ c.name, c.id ] }, { :include_blank => true }) %>
+    <%= select("post", "category_id", Category.all.collect {|c| [ c.name, c.id ] }, { :include_blank => true }, :required => true) %>
     <br>
     <br>
     <%= submit_tag "Submit", class: "btn btn-primary" %>
