@@ -1,3 +1,11 @@
+=begin
+Project name: Beacon Resources
+Description: BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
+Filename: 20201111212438_devise_create_admins.rb
+Description: Added by devise to keep track of admins.
+Last modified on: 11/11/2020
+=end
+
 # frozen_string_literal: true
 
 class DeviseCreateAdmins < ActiveRecord::Migration[6.0]
