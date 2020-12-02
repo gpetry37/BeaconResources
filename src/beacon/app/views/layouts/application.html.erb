@@ -3,7 +3,7 @@ Project name: Beacon Resources
 Description: BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
 Filename: application.html.erb
 Description: Layout for site
-Last modified on: 11/11/2020
+Last modified on: 12/1/2020
 <% end %>
 
 <!DOCTYPE html>
@@ -16,6 +16,7 @@ Last modified on: 11/11/2020
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%# Scripts used to filter inputs, source for base: https://stackoverflow.com/questions/24774367/how-to-validate-html-textbox-not-to-allow-special-characters-and-space %>
     <script>
       function blockSpecialCharAndNums(e){
         var k;
