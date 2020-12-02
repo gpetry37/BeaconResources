@@ -16,6 +16,28 @@ Last modified on: 11/11/2020
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script>
+      function blockSpecialCharAndNums(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32);
+      }
+      function blockSpecialChar(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+      }
+      function blockAllButNums(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return (k == 8 || (k >= 48 && k <= 57));
+      }
+      function blockNumsAndSpecial(e){
+        var k;
+        document.all ? k = e.keyCode : k = e.which;
+        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57) || k == 40 || k == 41 || k == 34 || k == 33 || k == 63 || k == 44 || k == 46);
+      }
+    </script>
   </head>
 
   <%# Code for displaying things on the navbar, some appear for admin and others appear for nonadmin %>
@@ -37,11 +59,11 @@ Last modified on: 11/11/2020
         <% end %>
       </div>
     </div>
-    <hr>
   </header>
 
   <body>
     <div style="margin:10px">
+      <hr>
       <%# Code for displaying notices and alerts %>
       <% if notice != nil %>
         <div class="alert alert-info notice">

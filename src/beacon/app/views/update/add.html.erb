@@ -11,23 +11,23 @@ Last modified on: 11/11/2020
 <%= form_with(url: "/add", method: "post") do %>
     <div class="mb-3">
       <label for="name" class="form-label">Resource Name</label>
-      <input class="form-control" type="text" id="name" name="name" placeholder="Example Soup Kitchen" required>
+      <input class="form-control" type="text" onkeypress="return blockSpecialChar(event)" id="name" name="name" placeholder="Example Soup Kitchen" required>
     </div>
     <div class="mb-3">
       <label for="address" class="form-label">Resource Address</label>
-      <input class="form-control" type="text" id="address" name="address" placeholder="123 Example Lane" required>
+      <input class="form-control" type="text" onkeypress="return blockSpecialChar(event)" id="address" name="address" placeholder="123 Example Lane" required>
     </div>
     <div class="mb-3">
       <label for="city" class="form-label">Resource City</label>
-      <input class="form-control" type="text" id="city" name="city" placeholder="Example City" required>
+      <input class="form-control" type="text" onkeypress="return blockSpecialCharAndNums(event)" id="city" name="city" placeholder="Example City" required>
     </div>
     <div class="mb-3">
       <label for="zip" class="form-label">Resource Zip Code</label>
-      <input class="form-control" type="text" id="zip" name="zip" placeholder="01234" required>
+      <input class="form-control" type="text" onkeypress="return blockAllButNums(event)" minlength="5" maxlength="5" id="zip" name="zip" placeholder="01234" required>
     </div>
     <div class="mb-3">
       <label for="phone" class="form-label">Resource Phone Number</label>
-      <input class="form-control" type="text" id="phone" name="phone" placeholder="1234567890" required>
+      <input class="form-control" type="text" onkeypress="return blockAllButNums(event)" minlength="10" maxlength="10" id="phone" name="phone" placeholder="1234567890" required>
     </div>
     <label class="form-check-label" for="county_id">
     Resource County

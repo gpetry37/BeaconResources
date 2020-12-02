@@ -6,6 +6,7 @@ Description: Allows user to choose whether they want to make a suggestion to add
 Last modified on: 11/11/2020
 <% end %>
 
+<h3 style="text-align:center;">Create Suggestion</h3>
 <%# Form for submitting suggestions %>
   <%= form_with(url: "/suggestions", method: "post") do %>
     <div class="form-check">
@@ -22,19 +23,19 @@ Last modified on: 11/11/2020
     </div>
     <div class="mb-3">
       <label for="name" class="form-label">Resource Name</label>
-      <input class="form-control" type="text" id="name" name="name" placeholder="Example Soup Kitchen" required>
+      <input class="form-control" type="text" id="name" onkeypress="return blockSpecialChar(event)" name="name" placeholder="Example Soup Kitchen" required>
     </div>
     <div class="mb-3">
       <label for="city" class="form-label">City</label>
-      <input class="form-control" type="text" id="city" name="city" placeholder="Example City" required>
+      <input class="form-control" type="text" id="city" onkeypress="return blockSpecialCharAndNums(event)" name="city" placeholder="Example City" required>
     </div>
     <div class="mb-3">
       <label for="county" class="form-label">County</label>
-      <input class="form-control" type="text" id="county" name="county" placeholder="Example County" required>
+      <input class="form-control" type="text" id="county" onkeypress="return blockSpecialCharAndNums(event)" name="county" placeholder="Example County" required>
     </div>
     <div class="mb-3">
       <label for="description" class="form-label">Description</label>
-      <textarea class="form-control" id="description" name="desc" rows="3" placeholder="Why do you think this resource should be added/removed?" required></textarea>
+      <textarea class="form-control" id="description" onkeypress="return blockNumsAndSpecial(event)" name="desc" rows="3" placeholder="Why do you think this resource should be added/removed?" required></textarea>
     </div>
     <%= submit_tag "Submit", class: "btn btn-primary" %>
   <% end %>
