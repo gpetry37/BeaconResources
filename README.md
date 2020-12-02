@@ -24,5 +24,5 @@ Rails version 6.0.3.3
 1. Run the following command to populate the Rails app database <br>
   <code>rails db:drop db:create db:migrate db:seed</code>
 1. Run the following command to initialize the Rails app <br>
-  <code>rails server --binding=<inet address> --port 3000</code>
+  <code>rails server --binding=(inet address) --port 3000</code>
 1. Navigate to http://localhost:3000/
