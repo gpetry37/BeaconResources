@@ -20,16 +20,21 @@ class SuggestionController < ApplicationController
         end
     end
 
-    # Contoller for adding suggestions
     def suggestions
+    end
+
+    # Contoller for adding suggestions
+    def submit
         # Checks for parameters to see if suggestion has been submitted
-        unless params[:name] == nil
-            @suggestion = Suggestion.create(:name=> params[:name], :s_type => params[:type], :city => params[:city], :county => params[:county], :description => params[:desc])
-            if @suggestion.save
-                redirect_to root_path, notice: 'Suggestion created!'
-            else
-                redirect_to root_path, alert: 'Could not save suggestion.'
-            end
+        @suggestion = Suggestion.create(:name=> params[:name], :s_type => params[:type], :city => params[:city], :county => params[:county], :description => params[:desc])
+        if @suggestion.save
+            flash.notice = 'Suggestion created!'
+        else
+            flash.alert = 'Could not save suggestion.'
+        end
+        # Refreshes the page as this was a huge problem, code used from: https://stackoverflow.com/questions/7465259/how-can-i-reload-the-current-page-in-ruby-on-rails
+        respond_to do |format|
+            format.js {render inline: "location.reload();" }
         end
     end
 

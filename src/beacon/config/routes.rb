@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   
   # suggestions
   get 'suggestions', to: 'suggestion#suggestions', as: 'suggestions'
-  post 'suggestions', to: 'suggestion#suggestions', as: 'submit'
+  post 'submit', to: 'suggestion#submit', as: 'submit'
 
   # Viewing Suggestions
   get 'view', to: 'suggestion#view', as: 'view'
@@ -28,5 +28,5 @@ Rails.application.routes.draw do
 
   # Adding resources
   get 'add', to: 'update#add', as: 'add'
-  post 'add', to: 'update#add', as: 'add_submit'
+  post 'add_submit', to: 'update#add_submit', as: 'add_submit'
 end

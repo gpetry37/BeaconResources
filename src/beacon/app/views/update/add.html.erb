@@ -8,7 +8,7 @@ Last modified on: 12/1/2020
 
 <h3 style="text-align:center;">Add Resources</h3>
 <%# Form for admins to add resources %>
-<%= form_with(url: "/add", method: "post") do %>
+<%= form_with(url: "/add_submit", method: "post") do %>
     <div class="mb-3">
       <label for="name" class="form-label">Resource Name</label>
       <input class="form-control" type="text" onkeypress="return blockSpecialChar(event)" id="name" name="name" placeholder="Example Soup Kitchen" required>
