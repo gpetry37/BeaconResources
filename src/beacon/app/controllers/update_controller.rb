@@ -41,6 +41,8 @@ class UpdateController < ApplicationController
         # Checks for id param to delete a resource
         if params[:id] != nil
             Resource.destroy(params[:id])
+            flash.notice = 'Resource removed!'
+            redirect_to remove_path
         end
     
         # Checks that a filter has not been submitted and otherwise gets all resources.

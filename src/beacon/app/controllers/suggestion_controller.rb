@@ -17,6 +17,8 @@ class SuggestionController < ApplicationController
         # Checks to see if suggestion should be removed
         if params[:id] != nil
             Suggestion.destroy(params[:id])
+            flash.notice = 'Suggestion removed!'
+            redirect_to view_path
         end
     end
 

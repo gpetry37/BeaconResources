@@ -12,5 +12,5 @@ class Admin < ApplicationRecord
   
   # Removed registerable as admin should be selected and inserted into the code manually
   devise :database_authenticatable,
-         :recoverable, :rememberable, :validatable
+         :rememberable, :validatable
 end
