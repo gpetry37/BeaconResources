@@ -3,7 +3,7 @@ Project name: Beacon Resources
 Description: BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
 Filename: routes.rb
 Description: Directs application to the appropriate page
-Last modified on: 11/11/2020
+Last modified on: 12/2/2020
 =end
 
 Rails.application.routes.draw do
