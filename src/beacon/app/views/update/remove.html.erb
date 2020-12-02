@@ -1,12 +1,13 @@
-=begin
+<% if false %>
 Project name: Beacon Resources
 Description: BeaconResources is a web application that will allow for easy access to verified resources, such as homeless shelters and food banks, by county in New Jersey with appropriate category filtering.
 Filename: remove.html.erb
 Description: Page for only admins to remove resources
 Last modified on: 11/11/2020
-=end
+<% end %>
 
 <section>
+<h3 style="text-align:center;">Remove Resources</h3>
   <%# Lists each county above the resources within it %>
   <% @counties.each do |county| %>
     <h3><%= county.name %></h3>

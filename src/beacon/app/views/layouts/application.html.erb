@@ -20,36 +20,41 @@ Last modified on: 11/11/2020
 
   <%# Code for displaying things on the navbar, some appear for admin and others appear for nonadmin %>
   <header>
-    <div class="topnav">
-      <h1><%= link_to "BeaconResources", "/" %></h1>
-      <% if admin_signed_in? %>
-        <%= link_to '<button type="button" class="btn btn-outline-primary">Add Resource</button>'.html_safe, "/add" %>
-        <%= link_to '<button type="button" class="btn btn-outline-primary">Remove Resource</button>'.html_safe, "/remove" %>
-        <%= link_to '<button type="button" class="btn btn-outline-primary">View Suggestions</button>'.html_safe, "/view" %>
-      <% end %>
-      <% unless admin_signed_in? %>
-        <%= link_to '<button type="button" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
-        <%= link_to '<button type="button" class="btn btn-outline-primary">Admin Log In</button>'.html_safe, "/admins/sign_in" %>
-      <% end %>
-      <% if admin_signed_in? %>
-        <%= link_to '<button type="button" class="btn btn-outline-primary">Sign Out</button>'.html_safe, destroy_admin_session_path, method: :delete %>
-      <% end %>
-    </div>    
+    <div style="height:3em" class="topnav">
+      <h1 style="float:left;margin:5px"><%= link_to "BeaconResources", "/" %></h1>
+      <div style="margin:3px">
+        <% if admin_signed_in? %>
+          <%= link_to '<button type="button" style="float:right;margin:2px;margin-top:12px;" class="btn btn-outline-primary">Sign Out</button>'.html_safe, destroy_admin_session_path, method: :delete %>
+        <% end %>
+        <% unless admin_signed_in? %>
+          <%= link_to '<button type="button" style="float:right;margin:2px;margin-top:12px;" class="btn btn-outline-primary">Admin Log In</button>'.html_safe, "/admins/sign_in" %>
+          <%= link_to '<button type="button" style="float:right;margin:2px;margin-top:12px;" class="btn btn-outline-primary">Suggest Resource</button>'.html_safe, "/suggestions" %>
+        <% end %>
+        <% if admin_signed_in? %>
+          <%= link_to '<button type="button" style="float:right;margin:2px;margin-top:12px;" class="btn btn-outline-primary">View Suggestions</button>'.html_safe, "/view" %>
+          <%= link_to '<button type="button" style="float:right;margin:2px;margin-top:12px;" class="btn btn-outline-primary">Remove Resource</button>'.html_safe, "/remove" %>
+          <%= link_to '<button type="button" style="float:right;margin:2px;margin-top:12px;" class="btn btn-outline-primary">Add Resource</button>'.html_safe, "/add" %>
+        <% end %>
+      </div>
+    </div>
+    <hr>
   </header>
 
   <body>
-  <%# Code for displaying notices and alerts %>
-    <% if notice != nil %>
-      <div class="alert alert-info notice">
-        <%= notice %>
-      </div>
-    <% end %>
-    <% if alert != nil %>
-      <div class="alert alert-danger alert">
-        <%= alert %>
-      </div>
-    <% end %>
+    <div style="margin:10px">
+      <%# Code for displaying notices and alerts %>
+      <% if notice != nil %>
+        <div class="alert alert-info notice">
+          <%= notice %>
+        </div>
+      <% end %>
+      <% if alert != nil %>
+        <div class="alert alert-danger alert">
+          <%= alert %>
+        </div>
+      <% end %>
     
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>
