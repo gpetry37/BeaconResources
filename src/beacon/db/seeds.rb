@@ -12,6 +12,7 @@ admin.email = "admin@test.com"
 admin.password = "admintest"
 admin.password_confirmation = 'admintest'
 admin.save!
+Admin.limit(1)
 
 # Counties
 County.create :name => "Atlantic"
