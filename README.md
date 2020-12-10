@@ -22,7 +22,7 @@ Rails version 6.0.3.3
 1. Clone git repository
 1. Change the directory to BeaconResources/src/beacon
 1. Run the following command to populate the Rails app database <br>
-<code>rails db:drop db:create db:migrate db:seed</code>
+  <code>rails db:drop db:create db:migrate db:seed</code>
 1. Run the following command to initialize the Rails app <br>
-  <code>rails server --binding=10.18.6.13 --port 3000</code>
-1. Navigate to http://csc415-server13.hpc.tcnj.edu:3000/
+  <code>rails server --binding=(inet address) --port 3000</code>
+1. Navigate to http://localhost:3000/
